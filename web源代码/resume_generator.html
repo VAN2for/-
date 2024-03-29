@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <Title>简历生成器</Title>
+        <link rel="stylesheet" href="layui-v2.6.8/layui/css/layui.css" media="all">
+        <link rel="stylesheet" href="style.css"> 
+        
+        
+
+        <script src="jquery.js"></script>
+        <script src="layui-v2.6.8/layui/layui.js"></script>
+        <script language="javascript" src="jqprint.js"></script>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/cropper/4.1.0/cropper.css">
+        <script src="https://cdn.staticfile.org/cropper/4.1.0/cropper.js"></script>
+        <script id="JSIncludeQWebChannel" src="qwebchannel.js" type="text/javascript"></script>  
+      </head>
+    <body>
+      
+      <div class="layui-row"style="display: flex;flex-direction: row;">
+        <div style="width:35%"></div>
+        <!-- 工作区 -->
+        <div class="console-wrapper" id="console_wrapper1"style="position:fixed;top: 0px;">
+          <!--导航栏-->
+          <div class="nav" >
+            <ul class="layui-nav" lay-filter="" >
+              
+              <div class="page 1 show">
+              <img class="decoration" src="img/向左箭头.png" alt="" width="20px" height="20px">
+              <li class="layui-nav-item layui-this"><a href="#">基本资料</a></li>
+              <li class="layui-nav-item"><a href="#">详细内容</a></li>
+              <li class="layui-nav-item"><a href="#">其他内容</a></li>
+              <img class="btn1" src="img/向右箭头.png" alt="" width="20px" height="20px" style="margin-left: 10px;">
+              </div>
+
+              <div class="page 2">
+              <img class="btn1" src="img/向左箭头.png" alt="" width="20px" height="20px">
+              <li class="layui-nav-item"><a href="#">创作者内容</a></li>
+              <li class="layui-nav-item"><a href="#">主题设置</a></li>
+              <li class="layui-nav-item"><a href="#">保存内容</a></li>
+              <img class="decoration" src="img/向右箭头.png" alt="" width="20px" height="20px" style="margin-left: 10px;">
+              
+              </div>
+              
+            </ul>
+          </div>
+          <!--页面一-->
+          <div class="content show" id="content_show">
+            
+            <!-- 上传头像相关 -->
+            <div id="ImgPush">
+              <div id="push_btn">上传照片</div>
+              <button id="file" class="file"></button>
+            </div>
+
+            <div id="garbege">
+              <img src="img/garbege2.jpg" id="garbege_1">
+            </div>
+            
+            <div id="input_content">
+            <input class = "basic_content"id="basic1"type="text" placeholder="姓名"/>
+            <input class = "basic_content"id="basic2"type="text" placeholder="求职岗位"/>
+            <input class = "basic_content"id="basic3"type="text" placeholder="性别"/>
+            <input class = "basic_content"id="basic4"type="text" placeholder="年龄"/>
+            <input class = "basic_content"id="basic5"type="text" placeholder="毕业院校"/>
+            <input class = "basic_content"id="basic6"type="text" placeholder="专业"/>
+            <input class = "basic_content"id="basic7"type="text" placeholder="邮箱"/>
+            <input class = "basic_content"id="basic8"type="text" placeholder="电话"/>
+            <div class="Custom">
+              
+            </div>
+            <button type="button" class="layui-btn add" style="margin-left: 15px;">添加自定义信息</button>
+            <button type="button" class="layui-btn layui-btn-danger del" style="margin-left: 123px;">删除自定义信息</button>
+            </div>
+            <p style="margin-left: 15px;margin-top: 5px;font-size: 12pt;">图标库:</p>
+            <div class="IconArea" id="IconArea">
+            </div>
+          </div>
+
+          <!--页面二-->
+          <div class="content">
+             
+             <form class="layui-form" style="width: 300px;padding-left: 100px; margin-top: 15px;display: flex;flex-direction: column;" id = "details">
+               <div class="layui-form-item detail" style="order:0;">
+                 <label class="layui-form-label">工作经历</label>
+                 <div class="layui-input-inline" style="width: 100px;">
+                  <input type="checkbox" class="self c" id = "worked" lay-skin="switch"lay-filter="myself" style="float: left;float: top;">
+                 </div>
+                 
+                 <div style=" display:flex;flex-direction: column;">
+                   <img class="up" src="img/上三角.svg" alt="" width="20px" height="20px" style="margin-top: 0px;">
+                   <img class="down" src="img/下三角.svg" alt="" width="20px" height="20px" style=" position: relative;">
+                  </div>
+                
+               </div>
+               
+               <div class="layui-form-item detail"style="order:1;">
+                <label class="layui-form-label ">项目经历</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                  <input type="checkbox" class="self c" id = "projected"lay-skin="switch"lay-filter="myself" style="float: left;float: top;">
+                </div>
+                <div style=" display:flex;flex-direction: column;">
+                  <img class="up" src="img/上三角.svg" alt="" width="20px" height="20px" style="margin-top: 0px;">
+                  <img class="down" src="img/下三角.svg" alt="" width="20px" height="20px" style=" position: relative;">
+                 </div>
+              </div>
+             
+              <div class="layui-form-item detail"style="order:2;">
+                <label class="layui-form-label ">掌握技能</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                  <input type="checkbox" class="self c" id = "talented" lay-skin="switch"lay-filter="myself" style="float: left;float: top;">
+                </div>
+                <div style=" display:flex;flex-direction: column;">
+                 <img class="up" src="img/上三角.svg" alt="" width="20px" height="20px" style="margin-top: 0px;">
+                 <img class="down" src="img/下三角.svg" alt="" width="20px" height="20px" style=" position: relative;">
+                </div>
+                
+              </div>
+              
+              <div class="layui-form-item detail"style="order:3;">
+                <label class="layui-form-label ">教育背景</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                  <input type="checkbox" class="self c" id = "educated" lay-skin="switch"lay-filter="myself" style="float: left;float: top;">
+                </div>
+                <div style=" display:flex;flex-direction: column;">
+                 <img class="up" src="img/上三角.svg" alt="" width="20px" height="20px" style="margin-top: 0px;">
+                 <img class="down" src="img/下三角.svg" alt="" width="20px" height="20px" style=" position: relative;">
+                </div>
+              </div>
+             
+              <div class="layui-form-item detail"style="order:4;">
+                <label class="layui-form-label ">校园经历</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                  <input type="checkbox" class="self c" id = "campaigned" lay-skin="switch"lay-filter="myself" style="float: left;float: top;">
+                </div>
+                <div style=" display:flex;flex-direction: column;">
+                 <img class="up" src="img/上三角.svg" alt="" width="20px" height="20px" style="margin-top: 0px;">
+                 <img class="down" src="img/下三角.svg" alt="" width="20px" height="20px" style=" position: relative;">
+                </div>
+              </div>
+             
+              <div class="layui-form-item detail"style="order:5;">
+                <label class="layui-form-label ">技能特长</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                  <input type="checkbox" class="self c" id = "goodat"lay-skin="switch"lay-filter="myself" style="float: left;float: top;">
+                </div>
+                <div style=" display:flex;flex-direction: column;">
+                 <img class="up" src="img/上三角.svg" alt="" width="20px" height="20px" style="margin-top: 0px;">
+                 <img class="down" src="img/下三角.svg" alt="" width="20px" height="20px" style=" position: relative;">
+                </div>
+              </div>
+            
+              <div class="layui-form-item detail" style="order:6;">
+                <label class="layui-form-label ">荣誉证书</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                  <input type="checkbox" class="self c" id = "certificated"lay-skin="switch"lay-filter="myself" style="float: left;float: top;">
+                </div>
+                <div style=" display:flex;flex-direction: column;">
+                 <img class="up" src="img/上三角.svg" alt="" width="20px" height="20px" style="margin-top: 0px;">
+                 <img class="down" src="img/下三角.svg" alt="" width="20px" height="20px" style=" position: relative;">
+                </div>
+              </div>
+             
+              <div class="layui-form-item detail" style="order:7;">
+                <label class="layui-form-label ">自定义模块</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                  <input type="checkbox" class="self c" id = "customed"lay-skin="switch"lay-filter="myself2" style="float: left;float: top;">
+                  
+                </div>
+                <div style=" display:flex;flex-direction: column;">
+                 <img class="up" src="img/上三角.svg" alt="" width="20px" height="20px" style="margin-top: 0px;">
+                 <img class="down" src="img/下三角.svg" alt="" width="20px" height="20px" style=" position: relative;">
+                </div>
+              </div>
+              
+            </form>
+           </div>
+           <!--页面三-->
+           <div class="content" style="margin-left: 15px;" >
+             <div class="p_p" style="width: 400px;height: 60px;">
+              <p class="self_introduction">自我介绍</p>
+              <form class="layui-form" style="width: 40px;height: 60px;  float:left;margin-right: 10px;">
+              <input type="checkbox" id = "introduction_show_in_basic" class="self a" lay-skin="switch"lay-filter="self1" style="float: left;float: top;">
+              <input type="checkbox" id = "introduction_show_in_detail" class="self b" lay-skin="switch"lay-filter="self2" style="float: left;float: top;">
+              </form>
+              <div style="float: left;">
+              <p style="position: relative;top: 10px;">在基本资料中显示</p>
+              <p style="position: relative;top: 24px;">在详细内容中显示</p>
+              </div>
+             </div> 
+             
+             <div class="introduction" style="margin-top: 10px;"></div>
+             <p style="margin-top: 15px;margin-bottom: 15px;font-size: 12pt;">图标库:</p>
+             <div class="IconArea2">
+             </div>
+             <!--<p style="margin-top: 15px;margin-bottom: 15px;font-size: 12pt;">样式库:</p>
+             <div class="StyleArea">
+             </div>-->
+             <!--<div id="ImgPush2">
+              <button id="push_btn2">
+                <img class="push_btn" src="img/图片样子的图片.svg" alt="" width="40px" height="40px">
+                <p>上传图片</p>      
+              </button>
+              </div>-->
+           </div>
+           <!--页面四-->
+           <div class="content" >
+            <div class="upimg">
+              <div class="upimg_1">上传图片</div>
+              <input type="file" id="upimg1" />
+            </div>
+            <!--<div style="margin: 70px;position: relative;left: 80px;">
+              <button type="button" class="layui-btn layui-btn-normal" style="height: 65px;width: 160px;">上传样式素材</button>
+            </div>-->
+           <div style="margin: 70px;position: relative;left: 80px;">
+            <button type="button" class="layui-btn layui-btn-warm loadJson" style="height: 65px;width: 160px;">加载json</button>
+            
+          </div>
+          <div>
+            <input class = "basic_content_js"id="jsonLoad"type="textarea" placeholder="请输入json"/>
+          </div>
+           <!--页面五-->
+          </div>
+          <div class="content" >
+            <div style="margin-left: 110px;margin-top: 15px;">
+            <button class="theme a">
+              <p>默认</p>      
+            </button>
+            
+            <button class="theme b">
+              <p>简约</p>      
+            </button>
+            </div>
+            <div class="layui-row layui-col-space15" style="margin-top: 15px;">
+              <div class="layui-col-md6">
+                <div class="layui-panel">
+                  <div style="padding: 30px;">调色区
+                    <input type="color" name="color" id="color" onchange="changeColor()">
+                  </div>
+                </div>   
+              </div>
+              <div class="layui-col-md6">
+                <div class="layui-panel">
+                  <div style="padding: 27px;">
+                    <form class="layui-form" style="position: relative;left: 26px;">
+                    <p style="float:left;margin-right: 10px;position: relative;top: 10px;">横版</p>
+                    <input type="checkbox" lay-skin="switch"lay-filter="V_and_h" style="float: left;">
+                    <p style="float:right;margin-right: 10px;position: relative;top: 10px;right: 32px;">竖版</p>
+                    </form>
+                  </div>
+                </div>   
+              </div>
+            </div>    
+          </div>
+          <!--页面六-->
+          <div class="content" >
+          
+           <form class="layui-form" action="">
+           <div class="layui-form-item" >
+            <label class="layui-form-label" style="width: 100px; font-size: 12pt;"><h2>打印简历</h2></label>
+            <!--<div class="layui-input-block">
+              <input type="radio" name="print" value="print1" title="打印图片pdf模式">
+              <input type="radio" name="print" value="print2" title="打印JPG格式" >
+            </div>-->
+          </div>
+          </form>
+           <div style="position: relative;left: 35%;margin-top: 15px;height: 160px;width: 130px;">
+            <button class="layui-btn save_img"style="height: 60px;width: 125px;" >
+              <img src="img/打印.svg" style="width: 45px;height: 45px;">
+              打印
+            </button>
+            <button type="button" class="layui-btn layui-btn-warm saveJson" style="height: 60px;width: 125px;margin-left: 0px;margin-top: 40px;">保存JSON文件</button>
+            
+          </div>
+          <textarea id="saveJsonTextarea" required lay-verify="required" placeholder="这里是保存后生成的json" class="layui-textarea"></textarea>
+          </div>
+
+        </div>
+          
+        <!-- 简历显示区 -->
+        
+        <div class="frame" id='frame'>
+          <div class="resume" id='resume'>
+            <!-- 基本资料区 -->
+            <div class="Basic_content">
+              <div>
+                <div><img class="portrait"src="img/头像.svg" id="portrait1"></div>
+            <div ><p class="Basica" id="Basic1" style="position: relative;"></p></div>
+              </div>
+              <div id="title_Basic" >
+                <img src="img/账户.svg"style="position: relative;top: 2px; width:29px;height:27px;margin-right: 15px;float:left;">
+                <h2 style="float:left; color: #fff;" id="writing">基本资料</h2>
+              </div> 
+            
+
+
+          <div id="father_Basic">
+            <div>
+
+          
+          <div >
+          <p class="Basic"id="Basic_2"style="position: relative;">求职岗位：
+          <p class="Basica"id="Basic2"></p>
+          </p>
+          </div>
+          <div >
+          <p class="Basic"id="Basic_3"style="position: relative;">性别：
+            <p class="Basica"id="Basic3"></p>
+          </p>
+          </div>
+          <div >
+          <p class="Basic"id="Basic_4"style="position: relative;">年龄：
+            <p class="Basica"id="Basic4"></p>
+          </p>
+          </div>
+          <div >
+          <p class="Basic"id="Basic_5"style="position: relative;">毕业院校：
+            <p class="Basica"id="Basic5"></p>
+          </p>
+          </div>
+          
+        </div>
+          <div id="connect">
+ <!--         <div id="title_Basic">
+              <img src="img/账户.svg"style="position: relative;top: 2px; width:29px;height:27px;margin-right: 5px;float:left;">
+              <h2 style="float:left; color: #fff;">联系方式</h2>
+            </div> -->
+            <div >
+              <p class="Basic"id="Basic_6"style="position: relative;">专业：
+                <p class="Basica"id="Basic6"></p>
+              </p>
+              </div>
+            <div class="last_item1">
+              <p class="Basic"id="Basic_7"style="position: relative;">邮箱：
+                <p class="Basica"id="Basic7"></p>
+              </p>
+              </div>
+              <div  >
+              <p class="Basic"id="Basic_8"style="position: relative;">电话：
+                <p class="Basica"id="Basic8"></p>
+              </p>
+              </div>
+          </div>
+          
+          
+        </div>
+
+        </div>
+        <!-- 详细资料区域 -->
+        <div class="Detail_content">
+          
+          
+            
+          
+        </div>
+        </div>
+      </div>
+      <!-- 头像上传功能 -->
+      <div class="wrapper hiddle">
+        <!--用块元素（容器）包装图像或画布元素-->
+        <div class="img-container">
+            <img id="image" src="img/图片样子的图片.svg" alt="" height="100%" width="100%">
+        </div>
+        <div class="img-preview-container">
+            <h1>预览区域</h1>
+            <div class="img-preview">
+                <img src="" alt="" height="100%" width="100%">
+            </div>
+        </div>
+        <div class="btn-container" id="move_container">
+            <div class="btn" data-movex="0" data-movey="-10">上移</div>
+            <div class="btn" data-movex="0" data-movey="10">下移</div>
+            <div class="btn" data-movex="-10" data-movey="0">左移</div>
+            <div class="btn" data-movex="10" data-movey="0">右移</div>
+        </div>
+        <div class="btn-container" id="zoom_container">
+            <div class="btn" data-zoom="0.1">放大</div>
+            <div class="btn" data-zoom="-0.1" data-movey="10">缩小</div>
+        </div>
+        <div class="btn-container" id="rotate_container">
+            <div class="btn" data-rotate="45">顺时针旋转</div>
+            <div class="btn" data-rotate="-45" data-movey="10">逆时针旋转</div>
+        </div>
+        <div class="btn-container" id="scale_container">
+            <div class="btn" data-scale="x">左右翻转</div>
+            <div class="btn" data-scale="y" data-movey="10">上下翻转</div>
+        </div>
+        <div class="btn-container">
+            <div class="btn">
+                <input class="input-upload" id="upload" type="file">
+                上传图片
+            </div>
+        </div>
+        <div class="btn-container">
+            <div class="btn" id="getCroppedCanvas">裁剪：get Cropped Canvas</div>
+        </div>
+
+        <div class="btn-container">
+          <div class="btn" id="cancel">取消</div>
+      </div>
+      <div class="fixed-canvas hiddle">
+        <div class="fixed-bg"></div>
+        <div class="canvas-container">
+            <h1>裁剪区域</h1>
+            <div class="canvas" id="canvas">
+            </div>
+            <div class="btn-container" id="modal_canvas_btn">
+                <a class="btn" href="javascript:;" >取消</a>
+                <a class="btn" id="download" href="javascript:;" download="img/证件照1.jpg">下载</a>
+                <a class="btn" id="check_true">确认</a>
+    
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 头像上传功能结束 -->
+    <!-- 上传图片素材功能的画布 -->
+
+
+
+    <div style="margin-top: 70px;float: bottom;"></div>
+    <script src="scripts.js"></script> 
+    <script src="main.js"></script> 
+    </body>
+</html>
+

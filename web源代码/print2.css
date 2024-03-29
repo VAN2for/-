@@ -1,0 +1,412 @@
+@media print{.header,.footer{undefined
+  display:none;
+}
+
+@page {undefined
+
+  size: auto;
+  margin: 0mm;
+  padding:0mm;
+}
+  .header,.footer{undefined
+    display:none;
+  }
+  .vertical_resume{
+    border: 0mm;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+  }
+  .resume{
+    border:0mm;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+  }
+}
+
+/* 隐藏左边工作区滑动条 */
+
+.console-wrapper::-webkit-scrollbar{width:0;}
+.console-wrapper{
+  float: left;
+  width: 500px;
+  height: 900px;
+  overflow-y:auto;
+}
+
+.frame{
+  display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+.resume
+{
+  position: absolute;
+  width: 210mm;
+  height: 297mm;
+  border: #000000;
+  border-width: 1px;
+  border-style: solid;
+  display: flex;
+  flex-direction: row;
+}
+#connect{
+  display: flex;
+  flex-direction: column;
+}
+#vertical_connect{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+
+.icon{
+  width: 32px;
+  height: 32px;
+  margin: 2px;
+}
+
+
+
+
+
+
+.theme{
+  margin-right: 65px;
+  border: #000000;
+  border-width: 1px;
+  border-style: solid;
+  height: 50px;
+  width: 100px;
+}
+
+#color{
+  height: 25px;
+  width: 25px;
+  background-color:#fff;
+  border: #fff;
+  position: relative;
+  top: 5px;
+}
+
+.Basic_content{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: auto;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background-color: rgb(89, 119, 85);
+}
+/* todo */
+.Basic_content.Simplicity{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: auto;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  border:1px solid black;
+  background-color: rgb(255, 255, 255)!important;
+}
+.vertical_Basic_content.Simplicity{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 25%;
+  align-items: center;
+  background-color: rgb(255, 255, 255)!important;
+}
+.Basica.Simplicity{
+  display: none;
+  font-size: 16px;
+  margin-top: 10px;
+  
+  margin-bottom: 10px;
+  color: rgb(0, 0, 0);
+  word-break:break-all;
+  white-space: pre-wrap;
+  
+}
+.Basic.Simplicity{
+  color: #000000;
+}
+.title.Simplicity{
+  color:#000000;
+  background-color: #FFF!important;
+  border:#000000 2px solid;
+}
+#writing.Simplicity{
+  color: #000000!important;
+}
+#vertical_writing.Simplicity{
+  color: #000000!important;
+}
+.title.Simplicity::before{
+  content: "";
+  display: none;
+  width: 18.4px;
+  height: 18.4px;
+  background: #ffffff;
+  position: absolute;
+  right: -9px;
+  top: 4px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/*///////////////////////////////////////////////////////*/
+.Basica{
+  display: none;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+  word-break:break-all;
+  white-space: pre-wrap;
+  
+}
+#Basic1{
+  font-size: 21pt;
+  position: absolute;
+  left: 33%;
+  top: -15px;
+  margin: 0px;
+}
+#title_Basic{
+  position: relative;
+  left: 15%;
+  top: 5px;
+}
+
+#title_Basic:after{
+  
+    content:'';
+    display:block;
+    clear:both;
+  
+}
+.Basic{
+  
+  display: none;
+  font-size: 16px;
+  margin-top: 10px;
+  
+  color: #fff;
+  
+}
+
+#father_Basic{
+  position: relative;
+  left:12%;
+  top:10px;
+  width: 88%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.portrait{
+  width: 120px;
+  height: 120px;
+  margin: 15px;
+  position: relative;
+  top:-25px;
+  left: 50px;
+}
+
+
+
+
+
+
+
+.Detail_content{
+  width: 60%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  
+}
+.title{
+  position: relative;
+    font-size: 20px;
+    font-weight: 700;
+    width: 200px;
+    width: -webkit-max-content;
+    width: max-content;
+    line-height: 26px;
+    padding: 0 100px 0 10px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    color: #fff;
+
+}
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0!important;
+    margin-bottom: 0.5em!important;
+    color: rgba(0,0,0,.85);
+    font-weight: 500;
+}
+.title::before{
+  content: "";
+  display: block;
+  width: 18.4px;
+  height: 18.4px;
+  background: #ffffff;
+  position: absolute;
+  right: -9px;
+  top: 4px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.s_title{
+  position: relative;
+    font-size: 22px;
+    font-weight: 700;
+    width: 200px;
+    width: -webkit-max-content;
+    width: max-content;
+    line-height: 26px;
+    border-bottom: #84848a;
+    border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: solid;
+  border-left-style: none;
+}
+.description{
+    white-space: pre-wrap;
+    font-family: roboto-regular;
+    font-size: 14px;
+    color: rgba(0,0,0,.85);
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    font-feature-settings: "tnum";
+    -webkit-font-feature-settings: "tnum";
+    -moz-font-feature-settings: "tnum";
+}
+.Detail{
+  position: relative;
+  padding: 5px;
+
+}
+.description{
+  font-size: 13pt;
+}
+
+/* 横板简历 */
+.vertical_resume{
+   position: absolute;
+    width: 210mm;
+    height: 297mm;
+    border: #000000;
+    border-width: 1px;
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .vertical_Basic_content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 25%;
+    align-items:center;
+    background-color: rgb(89, 119, 85)
+    
+  }
+
+  #vertical_father_Basic{
+    position: relative;
+    left: 5%;
+ /*    top: -50px; */
+    width: 88%;
+    display: flex;
+    flex-direction: row;
+    padding-left: 100px;
+
+  }
+
+  #vertical_connect{
+    padding-left: 50px;
+  }
+
+#vertical_writing{
+  float:left; 
+  color: #fff;
+  writing-mode:tb-rl
+}
+
+
+
+
+
+
+
+
+
+
+/* @media print
+{
+  .header,.footer{undefined
+    display:none;
+  }
+  
+  @page {undefined
+  
+    size: auto;
+    
+    margin: 0mm;
+    padding:0mm;
+  }
+  div{margin:0;border:0;padding:0;}
+  .resume
+  {
+    position: absolute;
+    top: 0;
+    bottom:0;
+    left:0;
+    right:0;
+    padding:0cm;
+    width: 100%;
+    height:100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .Basic_content{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: auto;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .Basica{
+    display:none;
+    font-size: 16px;
+    color: #fff;
+    word-break:break-all;
+    white-space: pre-wrap;
+  }
+  .vertical_resume{
+   
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom:0;
+    left:0;
+    right:0;
+    padding:0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    
+  }
+  
+ 
+} */
